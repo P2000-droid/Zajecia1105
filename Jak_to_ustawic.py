@@ -13,7 +13,11 @@ gdf = geopandas.read_file("PD_STAT_GRID_CELL_2011.shp")
 #gdf.to_crs("EPSG:4326") #układ
 gdf['centroid'] = gdf.centroid #wyznaczenie centroid dla poligonóW
 
+<<<<<<< HEAD
  
+=======
+ax = df.plot(figsize = (10, 10), alpha=0.5, edgecolor = 'k' )
+>>>>>>> 9452e754c1a5ac1a7715fdf119e47e1dbfd14d3a
 
 # wyznaczenie regularnej siatki
 import shapely 
