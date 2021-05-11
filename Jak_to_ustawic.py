@@ -4,9 +4,11 @@ Created on Tue Apr 27 22:05:51 2021
 
 @author: giera
 """
+import geopandas as gpd 
 
-print("Szable We dłoń")
+df = gpd.read_file(gpd.datasets.datasets.get_path('nybb'))
 
-print("aj, okazja teraz")
+ax = df.plot(figsize = (10, 10), alpha=0.5, edgecolr = 'k' )
 
-import pandas as pd
+
+cities = gpd.read_file(gpd.datasets.get_path('naturalearth_cities'))
