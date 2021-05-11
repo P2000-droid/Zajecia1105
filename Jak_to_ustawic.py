@@ -8,7 +8,7 @@ import geopandas as gpd
 
 df = gpd.read_file(gpd.datasets.datasets.get_path('nybb'))
 
-ax = df.plot(figsize = (10, 10), alpha=0.5, edgecolr = 'k' )
+ax = df.plot(figsize = (10, 10), alpha=0.5, edgecolor = 'k' )
 
 
 cities = gpd.read_file(gpd.datasets.get_path('naturalearth_cities'))
