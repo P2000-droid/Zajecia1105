@@ -4,20 +4,17 @@ Created on Tue Apr 27 22:05:51 2021
 
 @author: giera
 """
-import geopandas as gpd 
+
 
 import numpy as np
 import matplotlib.pyplot as plt
 import geopandas
-gdf = geopandas.read_file("PD_STAT_GRID_CELL_2011.shp")
+
+gdf = geopandas.read_file('D:\Nowy folderi')
 #gdf.to_crs("EPSG:4326") #układ
 gdf['centroid'] = gdf.centroid #wyznaczenie centroid dla poligonóW
 
-<<<<<<< HEAD
  
-=======
-ax = df.plot(figsize = (10, 10), alpha=0.5, edgecolor = 'k' )
->>>>>>> 9452e754c1a5ac1a7715fdf119e47e1dbfd14d3a
 
 # wyznaczenie regularnej siatki
 import shapely 
@@ -37,34 +34,3 @@ for x0 in np.arange(xmin, xmax + cell_size, cell_size):
 cell = geopandas.GeoDataFrame(grid_cells, columns = ['geometry'])
 
  
-
-ax = gdf.plot(markersize = .1, figsize = (12, 8), column = 'TOT', cmap = 'jet')
-
- 
-
-plt.autoscale(False)
-cell.plot(ax = ax, facecolor = "none", edgecolor = 'grey')
-ax.axis("off")
-
- 
-
-merged = geopandas.sjoin(gdf, cell, how = 'left', op = 'within')
-
- 
-
-dissolve = merged.dissolve(by = "index_right", aggfunc = "sum") #agregacja
-
- 
-
-cell.loc[dissolve.index, 'TOT'] = dissolve.TOT.values #przypisanie wartosci do oczek siatki
-
- 
-
-ax = cell.plot(column = 'TOT', figsize  =(12,8), cmap = 'viridis', vmax = 700000, edgecolor = "grey", legend = True)
-
- 
-
-plt.autoscale(False)        
-ax.set_axis_off()
-plt.axis('equeal')
-plt.title('liczba ludnosci w siatce')
